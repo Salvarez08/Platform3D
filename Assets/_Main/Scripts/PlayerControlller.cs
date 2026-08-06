@@ -1,34 +1,23 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
-public class PlayerControlller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    
-    InputAction moveAction;
-    InputAction jumpAction;
+    private InputAction moveAction;
+    private InputAction jumpAction;
 
+    public Vector2 moveValue { get; private set; }
+    public bool isJump { get; private set; }
 
-    private void Start()
+    void Start()
     {
-      
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
     }
 
     void Update()
     {
-        
-
-        Vector2 moveValue = moveAction.ReadValue<Vector2>();
-        bool jumpValue = jumpAction.IsPressed();
-
-        Debug.Log("Me Muevo" + moveValue);
-        Debug.Log("Salto" + jumpValue);
-
-        if (jumpAction.IsPressed())
-        {
-            Debug.Log("Jump action is pressed");
-        }
+        moveValue = moveAction.ReadValue<Vector2>();
+        isJump = jumpAction.IsPressed();
     }
 }

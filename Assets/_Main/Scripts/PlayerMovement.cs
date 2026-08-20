@@ -6,37 +6,63 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
 
-    private PlayerController controller;
-    private Rigidbody rb;
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private GroundCheck groundCheck;
+    [SerializeField] private Rigidbody rb;
 
     void Awake()
     {
-        controller = GetComponent<PlayerController>();
+        playerController = GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody>();
     }
+
+
 
     void FixedUpdate()
     {
         Move();
         Jump();
+        RotateTowardsMovementDirection();
     }
 
     private void Move()
     {
-        Vector2 input = controller.moveValue;
+        Vector2 playerInputs = playerController.MoveValue;
 
-        rb.linearVelocity = new Vector3(
-            input.x * speed,
-            rb.linearVelocity.y,
-            input.y * speed
-        );
+        rb.linearVelocity = new Vector3(playerInputs.x * speed, rb.linearVelocity.y, playerInputs.y * speed);
     }
 
     private void Jump()
     {
-        if (controller.isJump)
+        if (playerController.isJump && groundCheck.isGround)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+ 
+
+            rb.AddForce(new Vector3 (rb.linearVelocity.x, jumpForce, rb.linearVelocity.z), ForceMode.Impulse);
+            playerController.isJump = false;
+
+
         }
+     
+
+    }
+
+
+
+    private void RotateTowardsMovementDirection()
+    {
+        Vector2 playerImputs = playerController.MoveValue;
+
+        if (playerImputs.sqrMagnitude <= 0.01f)
+        {
+            return;
+
+        }
+
+        Vector3 direction = new Vector3(playerImputs.x, 0f, playerImputs.y);
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        rb.MoveRotation(targetRotation);
     }
 }

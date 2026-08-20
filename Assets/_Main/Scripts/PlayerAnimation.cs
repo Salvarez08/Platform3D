@@ -2,19 +2,63 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private GroundCheck groundCheck;
     [SerializeField] private Animator animator;
-  
-    private static readonly int IsRunningParameter = 
-        Animator.StringToHash("IsRunning");
+ 
+
     void Update()
     {
-        UpdateMovementAnimation();
+        UpdateMovementAnimaton();
+        UpdateJumpingAnimation();
     }
-    private void UpdateMovementAnimation()
 
+    private void UpdateMovementAnimaton()
     {
-        bool isRunning = playerController.moveValue.sqrMagnitude > 0.01f;
-        animator.SetBool(IsRunningParameter, isRunning);
+        bool IsRunning = playerController.MoveValue.sqrMagnitude > 0.01f;
+
+        animator.SetBool("IsRunning", IsRunning);
+
+
+
+    }
+
+    private void UpdateJumpingAnimation()
+    {
+
+
+
+        bool IsJumping = playerController.isJump;
+
+      
+
+        if (IsJumping == true)
+        {
+            animator.SetBool("IsJumping", true);
+
+        }
+        if (IsJumping == false)
+        {
+            animator.SetBool("IsJumping", false);
+
+        }
+
+        if (groundCheck.isGround == true)
+        {
+            animator.SetBool("IsJumping", false);
+        }
+
+        if (groundCheck.isGround == false)
+        {
+            animator.SetBool("IsJumping", true);
+        }
+
+        if (playerController.isJump == false && groundCheck.isGround == false)
+        {
+            animator.SetBool("IsRunning", false);
+        }
+
+
     }
 }

@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
         if (Life <= 0)
         {
             Destroy(Player.gameObject);
-            Debug.Log("Se muriooo");
         }
 
         switch (Life)

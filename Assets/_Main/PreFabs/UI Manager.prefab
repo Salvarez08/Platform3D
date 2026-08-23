@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e9ed1a025dacd458a0f3383ea10dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  HealthCounter: {fileID: 0}
+  HealthCounter: {fileID: 5238224033891269875, guid: d6c1b516d36e2b04ebe108aa9de36708, type: 3}

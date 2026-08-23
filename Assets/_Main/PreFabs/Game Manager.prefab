@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   Life: 100
-  Player: {fileID: 0}
-  UImanager: {fileID: 0}
+  Player: {fileID: 775013111621622116, guid: 09b152876baf0bb4f94151c5ac1210ce, type: 3}
+  UImanager: {fileID: 129986158737521859, guid: ca0d40840b6446c458e8234ea43b8e1d, type: 3}

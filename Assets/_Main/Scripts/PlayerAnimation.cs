@@ -33,32 +33,24 @@ public class PlayerAnimation : MonoBehaviour
 
       
 
-        if (IsJumping == true)
+        if ((IsJumping == true) && (groundCheck.isGround == false))
         {
             animator.SetBool("IsJumping", true);
 
         }
-        if (IsJumping == false)
-        {
-            animator.SetBool("IsJumping", false);
-
-        }
-
-        if (groundCheck.isGround == true)
+        if ((IsJumping == false) && (groundCheck.isGround == true))
         {
             animator.SetBool("IsJumping", false);
         }
 
-        if (groundCheck.isGround == false)
-        {
-            animator.SetBool("IsJumping", true);
-        }
+            if (playerController.isJump == false && groundCheck.isGround == false)
+            {
+                animator.SetBool("IsRunning", false);
 
-        if (playerController.isJump == false && groundCheck.isGround == false)
-        {
-            animator.SetBool("IsRunning", false);
-        }
-
+            }
+    
 
     }
 }
+
+

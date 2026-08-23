@@ -3,10 +3,12 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
 
-    [SerializeField] private PlayerController playerController;
-    [SerializeField] private GroundCheck groundCheck;
-    [SerializeField] private Animator animator;
- 
+    [SerializeField] private PlayerController _playerController;
+    [SerializeField] private GroundCheck _groundCheck;
+
+    [SerializeField] private JumpBoost _jumpBoost;
+    [SerializeField] private Animator _animator;
+
 
     void Update()
     {
@@ -16,9 +18,9 @@ public class PlayerAnimation : MonoBehaviour
 
     private void UpdateMovementAnimaton()
     {
-        bool IsRunning = playerController.MoveValue.sqrMagnitude > 0.01f;
+        bool IsRunning = _playerController.MoveValue.sqrMagnitude > 0.01f;
 
-        animator.SetBool("IsRunning", IsRunning);
+        _animator.SetBool("IsRunning", IsRunning);
 
 
 
@@ -29,28 +31,29 @@ public class PlayerAnimation : MonoBehaviour
 
 
 
-        bool IsJumping = playerController.isJump;
+        bool IsJumping = _playerController.isJump;
 
-      
 
-        if ((IsJumping == true) && (groundCheck.isGround == false))
+
+        if ((IsJumping == true) && (_groundCheck.isGround == false))
         {
-            animator.SetBool("IsJumping", true);
+            _animator.SetBool("IsJumping", true);
+
+        }    
+        if ((IsJumping == false) && (_groundCheck.isGround == true))
+        {
+                _animator.SetBool("IsJumping", false);
 
         }
-        if ((IsJumping == false) && (groundCheck.isGround == true))
+
+        if ((IsJumping == false) && (_jumpBoost.isJumpBoost == true))
         {
-            animator.SetBool("IsJumping", false);
+            _animator.SetBool("IsJumping", true);
+
         }
-
-            if (playerController.isJump == false && groundCheck.isGround == false)
-            {
-                animator.SetBool("IsRunning", false);
-
-            }
-    
 
     }
-}
+    }
+
 
 

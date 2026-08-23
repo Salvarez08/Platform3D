@@ -5,15 +5,15 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
-
-    [SerializeField] private PlayerController playerController;
-    [SerializeField] private GroundCheck groundCheck;
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] private PlayerController _playerController;
+    [SerializeField] private GroundCheck _groundCheck;
+    [SerializeField] private JumpBoost _jumpBoost;
+    [SerializeField] private Rigidbody _rb;
 
     void Awake()
     {
-        playerController = GetComponent<PlayerController>();
-        rb = GetComponent<Rigidbody>();
+        _playerController = GetComponent<PlayerController>();
+        _rb = GetComponent<Rigidbody>();
     }
 
 
@@ -27,23 +27,32 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        Vector2 playerInputs = playerController.MoveValue;
+        Vector2 playerInputs = _playerController.MoveValue;
 
-        rb.linearVelocity = new Vector3(playerInputs.x * speed, rb.linearVelocity.y, playerInputs.y * speed);
+        _rb.linearVelocity = new Vector3(playerInputs.x * speed, _rb.linearVelocity.y, playerInputs.y * speed);
     }
 
     private void Jump()
     {
-        if (playerController.isJump && groundCheck.isGround)
+        if (_playerController.isJump && _groundCheck.isGround)
         {
  
 
-            rb.AddForce(new Vector3 (rb.linearVelocity.x, jumpForce, rb.linearVelocity.z), ForceMode.Impulse);
-            playerController.isJump = false;
+            _rb.AddForce(new Vector3 (_rb.linearVelocity.x, jumpForce, _rb.linearVelocity.z), ForceMode.Impulse);
+            _playerController.isJump = false;
 
 
         }
-     
+
+        if (_playerController.isJump && _jumpBoost.isJumpBoost)
+        {
+
+            _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0f, _rb.linearVelocity.z);
+            _rb.AddForce(new Vector3(_rb.linearVelocity.x, jumpForce * 5, _rb.linearVelocity.z), ForceMode.Impulse);
+            _playerController.isJump = false;
+
+
+        }
 
     }
 
@@ -51,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void RotateTowardsMovementDirection()
     {
-        Vector2 playerImputs = playerController.MoveValue;
+        Vector2 playerImputs = _playerController.MoveValue;
 
         if (playerImputs.sqrMagnitude <= 0.01f)
         {
@@ -63,6 +72,6 @@ public class PlayerMovement : MonoBehaviour
 
         Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-        rb.MoveRotation(targetRotation);
+        _rb.MoveRotation(targetRotation);
     }
 }

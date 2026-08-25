@@ -1,14 +1,22 @@
 using UnityEngine;
+using System.Collections; 
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int Life = 100;
     [SerializeField] private PlayerMovement Player;
     [SerializeField] private UIManager UImanager;
+    private bool isShielded = false;
+    private Coroutine shieldCoroutine;
 
 
     public void ReduceHealth(int _Damage)
     {
+        if (isShielded)
+        {
+            return; 
+        }
+
         if (Life > 0)
         {
             Life -= _Damage;
@@ -36,4 +44,30 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+    public void IncreaseHealth(int amount)
+    {
+        Life = Mathf.Min(Life + amount, 100); // no pasar de 100
+        UImanager.FillAmount_HealthColor(Life / 100f);
+    }
+
+    public void ActivateShield(float duration)
+    {
+        if (shieldCoroutine != null)
+        {
+            StopCoroutine(shieldCoroutine);
+        }
+
+        shieldCoroutine = StartCoroutine(ShieldRoutine(duration));
+    }
+
+    private IEnumerator ShieldRoutine(float duration)
+    {
+        isShielded = true;
+
+        yield return new WaitForSeconds(duration); 
+
+        isShielded = false;
+        shieldCoroutine = null;
+    }
+
 }

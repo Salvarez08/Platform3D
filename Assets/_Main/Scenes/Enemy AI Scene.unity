@@ -9093,15 +9093,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.5748367
+      value: 49.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.2
+      value: -7.32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9164,6 +9164,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4903821519161865218, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       insertIndex: -1
       addedObject: {fileID: 935688244}
+    - targetCorrespondingSourceObject: {fileID: 4903821519161865218, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 935688246}
   m_SourcePrefab: {fileID: 100100000, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
 --- !u!1 &935688243 stripped
 GameObject:
@@ -9193,6 +9196,21 @@ CapsuleCollider:
   m_Height: 0.48819014
   m_Direction: 1
   m_Center: {x: 0.04956597, y: 0.08399986, z: 0.02340888}
+--- !u!114 &935688246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935688243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1d0169af3dae44fb858c0d70a058f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleAnim
+  spinDirection: {x: 0, y: 100, z: 0}
+  speed: 2
+  strength: 0.5
 --- !u!1 &940753667
 GameObject:
   m_ObjectHideFlags: 0
@@ -10263,15 +10281,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.44919
+      value: 8.95
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.91
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.53
+      value: -5.79
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10309,6 +10327,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicNote2
       objectReference: {fileID: 0}
+    - target: {fileID: 4167873279085039625, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167873279085039625, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167873279085039625, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.43
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4903821519161865218, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
@@ -10318,6 +10348,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2737363095550565044, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1031146692}
+    - targetCorrespondingSourceObject: {fileID: 2737363095550565044, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1031146694}
   m_SourcePrefab: {fileID: 100100000, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
 --- !u!1 &1031146691 stripped
 GameObject:
@@ -10347,6 +10380,21 @@ CapsuleCollider:
   m_Height: 0.30819675
   m_Direction: 1
   m_Center: {x: 0.022899209, y: 0.08491561, z: 0.00011392869}
+--- !u!114 &1031146694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031146691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1d0169af3dae44fb858c0d70a058f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleAnim
+  spinDirection: {x: 0, y: 100, z: 0}
+  speed: 2
+  strength: 0.5
 --- !u!4 &1061653869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4261967583464965648, guid: eb60deadbe14f634e9d74f48ed8ef537, type: 3}
@@ -13949,15 +13997,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.37921
+      value: 57.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.81
+      value: 29.48
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.84
+      value: 16.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14004,6 +14052,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4486278163135843755, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1395186043}
+    - targetCorrespondingSourceObject: {fileID: 4486278163135843755, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1395186045}
   m_SourcePrefab: {fileID: 100100000, guid: fa20a381a3c2bb345a4d297453a839db, type: 3}
 --- !u!1 &1395186042 stripped
 GameObject:
@@ -14033,6 +14084,21 @@ CapsuleCollider:
   m_Height: 1.3845409
   m_Direction: 1
   m_Center: {x: 0.022603348, y: -0.0067508817, z: -0.0034439992}
+--- !u!114 &1395186045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395186042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1d0169af3dae44fb858c0d70a058f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollectibleAnim
+  spinDirection: {x: 0, y: 100, z: 0}
+  speed: 2
+  strength: 0.5
 --- !u!1 &1399801426
 GameObject:
   m_ObjectHideFlags: 0

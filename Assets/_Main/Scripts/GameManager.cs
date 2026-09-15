@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     {
         Notes[noteNumber] = true;
 
+        UImanager.PickUpObject();
         CheckNotes();
     }
 

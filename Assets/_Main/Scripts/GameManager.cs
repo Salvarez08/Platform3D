@@ -6,9 +6,36 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int Life = 100;
     [SerializeField] private PlayerMovement Player;
     [SerializeField] private UIManager UImanager;
+    [SerializeField] private bool[] Notes = new bool[3];
+    [SerializeField] private Collider doorCollider;
     private bool isShielded = false;
     private Coroutine shieldCoroutine;
 
+   
+    public void getNote(int noteNumber)
+    {
+        Notes[noteNumber] = true;
+
+        CheckNotes();
+    }
+
+    private void CheckNotes()
+    {
+        for (int i = 0; i < Notes.Length; i++)
+        {
+            if (Notes[i] == false)
+            {
+                return;
+            }
+        }
+
+        OpenDoor();
+    }
+
+    private void OpenDoor()
+    {
+        doorCollider.isTrigger = true;
+    }
 
     public void ReduceHealth(int _Damage)
     {

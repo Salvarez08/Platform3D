@@ -70,4 +70,17 @@ public class GameManager : MonoBehaviour
         shieldCoroutine = null;
     }
 
+    public void ActivateSpeedBoost(float multiplier, float duration)
+    {
+        StartCoroutine(SpeedBoostRoutine(multiplier, duration));
+    }
+
+    private IEnumerator SpeedBoostRoutine(float multiplier, float duration)
+    {
+        Player.SpeedMultiplier = multiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        Player.SpeedMultiplier = 1f; // vuelve a la normalidad
+    }
 }

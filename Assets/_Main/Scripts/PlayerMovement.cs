@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GroundCheck _groundCheck;
     [SerializeField] private JumpBoostCheck _jumpBoost;
     [SerializeField] private Rigidbody _rb;
+    public float SpeedMultiplier { get; set; } = 1f;
 
     void Awake()
     {
@@ -29,7 +30,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 playerInputs = _playerController.MoveValue;
 
-        _rb.linearVelocity = new Vector3(playerInputs.x * speed, _rb.linearVelocity.y, playerInputs.y * speed);
+        float currentSpeed = speed * SpeedMultiplier;
+
+
+        _rb.linearVelocity = new Vector3(playerInputs.x * currentSpeed, _rb.linearVelocity.y, playerInputs.y * currentSpeed);
     }
 
     private void Jump()

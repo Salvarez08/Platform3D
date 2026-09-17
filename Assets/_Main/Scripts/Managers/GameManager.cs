@@ -10,6 +10,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager UImanager;
     [SerializeField] private bool[] Notes = new bool[3];
     [SerializeField] private Collider doorCollider;
+    
+    [Header("UI Reference")]
+    public GameObject objectPauseMenu;
+    public GameObject objectPauseButton;
+    public GameObject objectLossMenu;
+
+
+    [HideInInspector]
+    public bool gamePaused = false;
+
     private bool isShielded = false;
     private Coroutine shieldCoroutine;
 
@@ -59,8 +69,9 @@ public class GameManager : MonoBehaviour
             UImanager.FillAmount_HealthColor(Life / 100f);
         }
 
-        if (Life <= 0)
+        if (Life <= 0) // PDHEWYUGVBUSHDBGVBREWUIGJVBNRJKGBVNJKSBNJVKSDBNVJKSDNJKVBDSHJKBVHJDSBVHJDSFB VHJDSFB 
         {
+            Loss();
             Destroy(Player.gameObject);
         }
 
@@ -81,7 +92,7 @@ public class GameManager : MonoBehaviour
     }
     public void IncreaseHealth(int amount)
     {
-        Life = Mathf.Min(Life + amount, 100); // no pasar de 100
+        Life = Mathf.Min(Life + amount, 100); 
         UImanager.FillAmount_HealthColor(Life / 100f);
     }
 
@@ -107,6 +118,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(sceneName);
     }
 
@@ -115,4 +127,31 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void Unpause()
+    {
+        objectPauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        gamePaused = false;
+    }
+
+    public void Pause()
+    {
+        objectPauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        gamePaused = true;
+    }
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Loss()
+    {
+        Time.timeScale = 0f;
+        objectLossMenu.SetActive(true);
+        objectPauseButton.SetActive(false);
+        gamePaused = true;
+    }
 }

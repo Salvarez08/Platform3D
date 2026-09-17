@@ -776,7 +776,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LEVEL 1
+          m_StringArgument: LEVEL1 TRUE
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &789043881
@@ -1074,6 +1074,8 @@ MonoBehaviour:
   UImanager: {fileID: 0}
   Notes: 000000
   doorCollider: {fileID: 0}
+  objectPauseMenu: {fileID: 0}
+  gamePaused: 0
 --- !u!1 &1317946069
 GameObject:
   m_ObjectHideFlags: 0

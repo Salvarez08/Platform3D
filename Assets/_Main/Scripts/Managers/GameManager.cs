@@ -1,5 +1,7 @@
-using UnityEngine;
 using System.Collections; 
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -101,6 +103,16 @@ public class GameManager : MonoBehaviour
 
         isShielded = false;
         shieldCoroutine = null;
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 }

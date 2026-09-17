@@ -768,7 +768,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1075989513}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -901,7 +901,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1075989513}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -1066,9 +1066,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1075989508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e030c94f91b84b4d8f9296fceb03e94, type: 3}
+  m_Script: {fileID: 11500000, guid: 443fb2625a524164a9d101c06483d91f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainMenuManager
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  Life: 100
+  Player: {fileID: 0}
+  UImanager: {fileID: 0}
+  Notes: 000000
+  doorCollider: {fileID: 0}
 --- !u!1 &1317946069
 GameObject:
   m_ObjectHideFlags: 0

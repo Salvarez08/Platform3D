@@ -11,13 +11,18 @@ public class GameManager : MonoBehaviour
     private bool isShielded = false;
     private Coroutine shieldCoroutine;
 
-   
+
     public void getNote(int noteNumber)
     {
-        Notes[noteNumber] = true;
+     
+        if (noteNumber >= 0 && noteNumber < Notes.Length)
+        {
+            Notes[noteNumber] = true; 
 
-        UImanager.PickUpObject();
-        CheckNotes();
+            UImanager.PickUpObject(noteNumber);
+
+            CheckNotes(); 
+        }
     }
 
     private void CheckNotes()

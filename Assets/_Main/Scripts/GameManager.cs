@@ -63,10 +63,12 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShieldRoutine(float duration)
     {
         isShielded = true;
+        Player.SetShieldVisible(true);
 
         yield return new WaitForSeconds(duration); 
 
         isShielded = false;
+        Player.SetShieldVisible(false);
         shieldCoroutine = null;
     }
 
@@ -81,6 +83,6 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
 
-        Player.SpeedMultiplier = 1f; // vuelve a la normalidad
+        Player.SpeedMultiplier = 1f; 
     }
 }

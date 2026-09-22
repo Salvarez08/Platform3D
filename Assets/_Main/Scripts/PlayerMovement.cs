@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GroundCheck _groundCheck;
     [SerializeField] private JumpBoostCheck _jumpBoost;
     [SerializeField] private Rigidbody _rb;
+    [SerializeField] private GameObject shieldVisual;
     public float SpeedMultiplier { get; set; } = 1f;
 
     void Awake()
@@ -72,4 +73,9 @@ public class PlayerMovement : MonoBehaviour
 
         _rb.MoveRotation(targetRotation);
     }
+    public void SetShieldVisible(bool visible)
+    {
+        shieldVisual.SetActive(visible);
+    }
+    
 }

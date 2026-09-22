@@ -109,11 +109,27 @@ public class GameManager : MonoBehaviour
     private IEnumerator ShieldRoutine(float duration)
     {
         isShielded = true;
+        Player.SetShieldVisible(true);
 
-        yield return new WaitForSeconds(duration); 
+        yield return new WaitForSeconds(duration);
 
         isShielded = false;
+        Player.SetShieldVisible(false);
         shieldCoroutine = null;
+    }
+
+    public void ActivateSpeedBoost(float multiplier, float duration)
+    {
+        StartCoroutine(SpeedBoostRoutine(multiplier, duration));
+    }
+
+    private IEnumerator SpeedBoostRoutine(float multiplier, float duration)
+    {
+        Player.SpeedMultiplier = multiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        Player.SpeedMultiplier = 1f;
     }
 
     public void LoadScene(string sceneName)

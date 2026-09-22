@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Networking;
 
 public class MonsterRango : MonoBehaviour
 {
@@ -26,6 +25,15 @@ public class MonsterRango : MonoBehaviour
         {
             Pursuing = false;
         }
+        if (Pursuing == false)
+        {
+            Monster.speed = 0;
+        }
+        else if (Pursuing == true)
+        {
+            Monster.speed = Velocity;
+            Monster.SetDestination(Objective.position);
+        }
        
     }
 
@@ -34,4 +42,5 @@ public class MonsterRango : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(Monster.transform.position, Rank);
     }
+
 }

@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
             UImanager.FillAmount_HealthColor(Life / 100f);
         }
 
-        if (Life <= 0) // PDHEWYUGVBUSHDBGVBREWUIGJVBNRJKGBVNJKSBNJVKSDBNVJKSDNJKVBDSHJKBVHJDSBVHJDSFB VHJDSFB 
+        if (Life <= 0) 
         {
             Loss();
             Destroy(Player.gameObject);

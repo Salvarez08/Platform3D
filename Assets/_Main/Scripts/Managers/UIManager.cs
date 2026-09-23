@@ -3,28 +3,28 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private Image HealthCounter; 
+    [SerializeField] private Image HealthCounter;
 
-   
+
     [SerializeField] private CanvasGroup[] targetCanvasGroups;
 
     private void Start()
     {
-        HealthCounter.color = Color.cyan; 
-        HealthCounter.fillAmount = 1; 
+        HealthCounter.color = Color.cyan;
+        HealthCounter.fillAmount = 1;
     }
 
-    public void HealthColor(Color color) 
+    public void HealthColor(Color color)
     {
-        HealthCounter.color = color; 
+        HealthCounter.color = color;
     }
 
-    public void FillAmount_HealthColor(float fillAmount) 
+    public void FillAmount_HealthColor(float fillAmount)
     {
-        HealthCounter.fillAmount = fillAmount; 
+        HealthCounter.fillAmount = fillAmount;
     }
 
-    
+
     public void PickUpObject(int noteIndex)
     {
         if (noteIndex >= 0 && noteIndex < targetCanvasGroups.Length)
@@ -34,5 +34,6 @@ public class UIManager : MonoBehaviour
                 targetCanvasGroups[noteIndex].alpha = 1f;
             }
         }
+      
     }
 }

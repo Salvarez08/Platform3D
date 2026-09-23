@@ -10,8 +10,6 @@ public class SpeedBoostPickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            gameManager.ActivateSpeedBoost(speedMultiplier, boostDuration);
-            Destroy(gameObject);
-        }
+            gameManager.ActivateSpeedBoost(speedMultiplier, boostDuration);        }
     }
 }

@@ -10,7 +10,6 @@ public class ShieldPickup : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             gameManager.ActivateShield(shieldDuration);
-            Destroy(gameObject);
         }
     }
 }

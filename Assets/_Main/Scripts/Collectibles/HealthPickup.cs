@@ -10,8 +10,6 @@ public class HealthPickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            gameManager.IncreaseHealth(healAmount);
-            Destroy(gameObject);
-        }
+            gameManager.IncreaseHealth(healAmount);        }
     }
 }

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager UImanager;
     [SerializeField] private bool[] Notes = new bool[3];
     [SerializeField] private Collider doorCollider;
+    [SerializeField] private Renderer doorRenderer;
     
     [Header("UI Reference")]
     public GameObject objectPauseMenu;
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
     private void OpenDoor()
     {
         doorCollider.isTrigger = true;
+        doorRenderer.enabled = false;
     }
 
     public void ReduceHealth(int _Damage)

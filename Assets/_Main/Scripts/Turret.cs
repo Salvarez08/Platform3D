@@ -4,16 +4,16 @@ public class Turret : MonoBehaviour
 {
     [Header("Detección")]
     [SerializeField] private float detectionRange = 10f;
-    [SerializeField] private Transform player; // se puede dejar vacío, se busca solo
+    [SerializeField] private Transform player;
 
     [Header("Rotación")]
-    [SerializeField] private Transform turretHead; // la parte que gira (el "cañón")
-    [SerializeField] private float rotationSpeed = 5f;
+    [SerializeField] private Transform turretHead;
+    [SerializeField] private float rotationSpeed = 10f;
 
     [Header("Disparo")]
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform firePoint; // punto desde donde sale la bala
-    [SerializeField] private float fireRate = 2f; // disparos por segundo... en realidad, segundos entre disparos
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float fireRate = 2f;
     [SerializeField] private float bulletSpeed = 15f;
 
     private float fireCooldown = 0f;
@@ -46,7 +46,7 @@ public class Turret : MonoBehaviour
     private void RotateTowardsPlayer()
     {
         Vector3 direction = player.position - turretHead.position;
-        direction.y = 0f; // que solo gire en el eje horizontal, no se incline hacia arriba/abajo
+        direction.y = 0f;
 
         if (direction.sqrMagnitude < 0.001f) return;
 
@@ -76,10 +76,15 @@ public class Turret : MonoBehaviour
         }
     }
 
-    // Para ver el rango de detección en el editor
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
+
+        if (firePoint != null)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(firePoint.position, firePoint.position + firePoint.forward * 3f);
+        }
     }
 }
